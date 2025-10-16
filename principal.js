@@ -52,7 +52,7 @@ function descativar(id){
 
 function verificar(id){
     if (aciertos < 3 && errores < 3){
-        if (id == incognitas[1].toString() + incognitas[0].toString() || id == incognitas[3].toString() + incognitas[2].toString() || id == incognitas[5].toString() + incognitas[4].toString()){
+        if (id == incognitas[0].toString() + incognitas[1].toString() || id == incognitas[2].toString() + incognitas[3].toString() || id == incognitas[4].toString() + incognitas[5].toString()){
             aciertos++;
             return true;
         }
