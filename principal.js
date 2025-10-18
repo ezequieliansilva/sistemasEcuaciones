@@ -33,26 +33,32 @@ function llenarEcuas(ecuacion,P){
 }
 
 function descativar(id){
-    
-    if (verificar(id)){
+    if (aciertos >= 3 || errores >= 3){
+        alert("El juego ha terminado, recarga la pagina para jugar de nuevo");
+    }
+    else{
+        if (verificar(id)){
         document.getElementById(id).innerHTML = "<img src='bomba.png'>";
+        aciertos++;
     }
     else{
         document.getElementById(id).style.backgroundColor = "green";
     }
     
-    if (aciertos == 3 && errores == 0){
+    if (aciertos == 3){
         alert("Felicidades has ganado");
     }
     if (errores == 3){
         alert("Lo siento has perdido");
-        alert("Las casas eran: x"+incognitas[1]+" y"+incognitas[0]+" , x"+incognitas[3]+" y"+incognitas[2]+" , x"+incognitas[4]+" y"+incognitas[5]);
+        alert("Las casas eran: x = "+incognitas[0]+" y = "+incognitas[1]+" , x = "+incognitas[2]+" y = "+incognitas[3]+" , x = "+incognitas[4]+" y = "+incognitas[5]);
     }
+    }
+    
 }
 
 function verificar(id){
     if (aciertos < 3 && errores < 3){
-        if (id == incognitas[0].toString() + incognitas[1].toString() || id == incognitas[2].toString() + incognitas[3].toString() || id == incognitas[4].toString() + incognitas[5].toString()){
+        if (id == incognitas[1].toString() + incognitas[0].toString() || id == incognitas[3].toString() + incognitas[2].toString() || id == incognitas[5].toString() + incognitas[4].toString()){
             aciertos++;
             return true;
         }
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ecuaciones = generarEcuacion(incognitas[4],incognitas[5])
     llenarEcuas(ecuaciones,"ecua3");
     console.log(incognitas);
-    
+    console.log("¡No mires aquí!")
 
         
         
